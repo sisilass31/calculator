@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font-family: Montserrat;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+:root {
+  --blue: #3373b0;
+  --white: #ffffff;
+  --light-grey: rgb(214, 213, 207);
+  --black: #0c0c0c;
+  --darkgrey: #2a2a2a;
+  --title: rgb(25, 25, 25);
+  --grey: rgb(61, 61, 61);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100vh;
+  --dot-bg: var(--black);
+  --dot-color: var(--white);
+  --dot-size: 1px;
+  --dot-space: 22px;
+  background: linear-gradient(
+        90deg,
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    linear-gradient(
+        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
+        transparent 1%
+      )
+      center / var(--dot-space) var(--dot-space),
+    var(--dot-color);
+}
+
+h1 {
+  color: var(--white);
+  background: var(--title);
+  padding: 6px 12px;
+  margin: 25px;
+  text-transform: uppercase;
+  font-weight: 400;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background-color: var(--darkgrey);
+  font-size: 18px;
+  color: var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--light-grey);
+}
+
+button[data-key="96"] {
+  grid-column: span 2;
+  font-size: 18px;
+}
+
+button[data-key="8"] {
+  background-color: #f7e478;
+  color: var(--black);
+}
+
+button[data-key="8"]:hover {
+  background-color: #ccbc61;
+  color: var(--black);
+}
+
+button[data-key="111"] {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+button[data-key="106"] {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+button[data-key="109"] {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+button[data-key="107"] {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+button[data-key="13"] {
+  background-color: var(--blue);
+  color: var(--black);
+}
+
+.calculatrice {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
+  border: 1px solid var(--grey);
+  padding: 15px;
+  border-radius: 15px;
+}
+
+.ecran {
+  width: 100%;
+  height: 100px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background-color: #1e1e1e;
+  font-size: 30px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.touches {
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-template-rows: repeat(5, 50px);
+  grid-gap: 7px;
+}
+
+@media screen and (max-width: 385px) {
+  h1 {
+    font-size: 16px;
+    margin: 16px;
+  }
+}
