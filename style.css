@@ -1,23 +1,24 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   outline: 0;
-  font-family: Montserrat;
+  font-family: "Inconsolata", monospace;
   box-sizing: border-box;
   text-decoration: none;
   transition: all 200ms ease;
 }
 
 :root {
-  --blue: #3373b0;
+  --orange: #ef9508;
   --white: #ffffff;
-  --light-grey: rgb(214, 213, 207);
-  --black: #0c0c0c;
-  --darkgrey: #2a2a2a;
-  --title: rgb(25, 25, 25);
-  --grey: rgb(61, 61, 61);
+  --light-grey: rgb(212, 212, 212);
+  --gradient-orange: linear-gradient(-45deg, #ff6200 0%, #ef9508 100%);
+  --gradient-grey: linear-gradient(-45deg, #4d4d4dbb 0%, #1b1b1bc6 100%);
+  --gradient-dark-grey: linear-gradient(-45deg, #666666bb 0%, #969696c6 100%);
+  --black: rgba(0, 0, 0, 0.9);
+  --grey: rgb(28, 28, 28);
 }
 
 body {
@@ -27,64 +28,38 @@ body {
   align-items: center;
   flex-direction: column;
   font-family: sans-serif;
+  font-weight: 300;
   width: 100%;
   height: 100vh;
-  --dot-bg: var(--black);
-  --dot-color: var(--white);
-  --dot-size: 1px;
-  --dot-space: 22px;
-  background: linear-gradient(
-        90deg,
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    linear-gradient(
-        var(--dot-bg) calc(var(--dot-space) - var(--dot-size)),
-        transparent 1%
-      )
-      center / var(--dot-space) var(--dot-space),
-    var(--dot-color);
+  background-color: #0a0a0a;
+  background-image: url("./ttten.svg");
+  background-repeat: repeat, no-repeat;
+  background-size: cover, cover;
+  background-position: center, center;
+  background-attachment: fixed, fixed;
+  width: 100%;
 }
 
-h1 {
-  color: var(--white);
-  background: var(--title);
-  padding: 6px 12px;
-  margin: 25px;
-  text-transform: uppercase;
-  font-weight: 400;
-  border-radius: 10px;
-  font-size: 22px;
-}
-
-@keyframes animate {
-  0% {
-    background-position: 0 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0 50%;
-  }
+.calculatrice {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: rgba(10, 10, 10, 0.8);
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 2px 5px 0px inset;
+  background-image: url("./nnnoise.svg");
 }
 
 button {
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   outline: none;
   background-color: var(--darkgrey);
-  font-size: 18px;
-  color: var(--black);
-  background-color: var(--white);
+  font-size: 22px;
+  color: var(--white);
+  background: var(--gradient-grey);
   cursor: pointer;
-}
-
-button:hover {
-  background-color: var(--light-grey);
+  box-shadow: inset 0 0px 6px 0px rgba(255, 255, 255, 0.14), inset 0px 1px 2px 0px rgba(255, 255, 255, 0.11), inset 0px 2px 5px 0px rgba(255, 255, 255, 0.4), inset 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 button[data-key="96"] {
@@ -92,75 +67,77 @@ button[data-key="96"] {
   font-size: 18px;
 }
 
-button[data-key="8"] {
-  background-color: #f7e478;
-  color: var(--black);
+button[data-key="8"],
+button[data-key="53"],
+button[data-key="219"] {
+  background: var(--gradient-dark-grey);
 }
 
-button[data-key="8"]:hover {
-  background-color: #ccbc61;
-  color: var(--black);
-}
 
-button[data-key="111"] {
-  background-color: var(--blue);
-  color: var(--black);
-}
-
-button[data-key="106"] {
-  background-color: var(--blue);
-  color: var(--black);
-}
-
-button[data-key="109"] {
-  background-color: var(--blue);
-  color: var(--black);
-}
-
-button[data-key="107"] {
-  background-color: var(--blue);
-  color: var(--black);
-}
-
+button[data-key="111"],
+button[data-key="106"],
+button[data-key="109"],
+button[data-key="107"],
 button[data-key="13"] {
-  background-color: var(--blue);
-  color: var(--black);
+  color: var(--white);
+  background: var(--gradient-orange);
 }
 
-.calculatrice {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--black);
-  border: 1px solid var(--grey);
-  padding: 15px;
-  border-radius: 15px;
+.button-41:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.button-41:active {
+  transform: scale(.95);
+}
+
+.button-32:hover {
+  filter: brightness(1.1);
+}
+
+.button-32:active {
+  transform: scale(.95);
 }
 
 .ecran {
-  width: 100%;
   height: 100px;
   width: 100%;
-  margin-bottom: 10px;
+  max-width: 350px;
+  /* ou la largeur de ta calculatrice */
+  margin-bottom: 30px;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  background-color: #1e1e1e;
-  font-size: 30px;
-  color: white;
+  font-size: 50px;
+  color: var(--white);
   padding: 5px;
   border-radius: 5px;
+
+  white-space: nowrap;
+  /* empêche le retour à la ligne */
+  overflow: hidden;
+  /* cache ce qui dépasse */
+  text-overflow: ellipsis;
+  /* ajoute "..." si le texte est trop long */
 }
 
 .touches {
   display: grid;
-  grid-template-columns: repeat(4, 50px);
-  grid-template-rows: repeat(5, 50px);
-  grid-gap: 7px;
+  grid-template-columns: repeat(4, 65px);
+  grid-template-rows: repeat(5, 65px);
+  grid-gap: 12px;
 }
 
-@media screen and (max-width: 385px) {
-  h1 {
-    font-size: 16px;
-    margin: 16px;
+@media screen and (max-width: 450px) {
+
+  .touches {
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(5, 60px);
+    grid-gap: 10px;
+  }
+
+  button {
+    font-size: 22px;
+    font-size: 20px;
   }
 }
